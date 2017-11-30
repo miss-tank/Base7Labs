@@ -290,8 +290,8 @@ if(pass == "bmwclass")
         </div>
       </div>
     </div>
-      
-      
+
+
    <div class="w3-row-padding " style="margin-top:64px">
     <div class="w3-col l3 m6 w3-margin-bottom">
      <div class="w3-card">
@@ -347,8 +347,8 @@ if(pass == "bmwclass")
         <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
         <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
         <p>
-          <button class="w3-button w3-black" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          <button class="w3-button w3-black" type="submit" onclick="sendEmail()">
+            <i class="fa fa-paper-plane" ></i> SEND MESSAGE
           </button>
         </p>
       </form>
@@ -399,6 +399,15 @@ function myMap()
   });
   marker.setMap(map);
 }
+
+
+
+function sendEmail()
+{
+  console.log("sending emial");
+    window.location = "mailto:atank2@uic.edu";
+}
+
 
 // Modal Image Gallery
 function onClick(element) {
