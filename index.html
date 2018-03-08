@@ -16,6 +16,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href='https://fonts.googleapis.com/css?family=Ubuntu Condensed' rel='stylesheet'>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <style>
@@ -29,14 +34,20 @@ body, html {
     background-position: center;
     background-size: cover;
     background-image: url("storepic2.jpg");
-    opacity: 0.8;
+    opacity: 1;
     min-height: 100%;
 }
 .w3-bar .w3-button {
     padding: 16px;
 
 }
-
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  margin: 30px 30px 0px 30px;
+  text-align: center;
+  font-family: arial;
+}
 
 .sendmButton
 {
@@ -44,6 +55,34 @@ body, html {
     padding: 15px 32px;
 
 }
+
+.experienceheading{
+    font-family: "Ubuntu Condensed";
+    font-size: 28px;
+}
+
+
+
+.experienceLocation{
+    font-family: "Ubuntu Condensed";
+    font-size: 14px;
+}
+
+
+
+.experienceDesc{
+    font-family: "Ubuntu Condensed";
+    font-size: 14px;
+}
+
+ul.b {
+    list-style-type: square;
+}
+
+p{
+    margin-bottom: 3px;
+}
+
 </style>
 <body>
   <!-- Modal -->
@@ -56,9 +95,9 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> WORK</a>
+      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> EXPERIENCE</a>
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact  </a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -72,7 +111,7 @@ body, html {
 <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">EXPERIENCE</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
 </nav>
@@ -160,8 +199,8 @@ if(pass == "bmwclass")
 
 <!-- About Section -->
 <div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">ABOUT OUR COMPANY</h3>
-  <p class="w3-center w3-large">Key features of our company</p>
+  <h1 class="w3-center">OUR GOAL</h1>
+  <p class="w3-center w3-large"></p>
   <div class="w3-row-padding w3-center" style="margin-top:64px">
     <div class="w3-third">
       <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
@@ -171,12 +210,12 @@ if(pass == "bmwclass")
     <div class="w3-third">
       <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
       <p class="w3-large">Passion</p>
-      <p>Drive a BMW of your choice with our Virtual reality experience. </p>
+      <p>Drive a BMW of your choice with our Virtual and Augmented reality experience. </p>
     </div>
     <div class="w3-third">
       <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-      <p class="w3-large">Expressing Status</p>
-      <p>Shop our exclusive accessories with the touch of Luxury. Personalize your own BMW </p>
+      <p class="w3-large">Be Unique </p>
+      <p>Personalize your own BMW with our special Design Studio.</p>
     </div>
     <!--
     <div class="w3-quarter">
@@ -190,40 +229,69 @@ if(pass == "bmwclass")
 
 
 <!-- Work Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="work">
-  <h3 class="w3-center">OUR WORK</h3>
-  <p class="w3-center w3-large">What we've done for people</p>
+<div class="w3-container w3-light-grey" style="padding:50px 16px" id="work">
+  <h1 class="w3-center ">EXPERIENCE</h1>
+  <p class="w3-center">What we offer to people</p>
 
-  <div class="w3-row-padding" style="margin-top:64px">
-    <div class="w3-col l3 m6">
-      <img src="virtual-reality4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="li-fi.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="programmable-materials.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="hanging-car-parts.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-  </div>
 
-  <div class="w3-row-padding w3-section">
-    <div class="w3-col l3 m6">
-      <img src="vr-ar.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="bmw-kid.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="bmw-accessories.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-    <div class="w3-col l3 m6">
-      <img src="ar2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" >
-    </div>
-  </div>
+
+
+
+
+
+<div class="card w3-third">
+  <img src="planTrip.jpg" alt="BMW Design Studio" style="width:100%">
+  <h3 class="experienceheading" >Interactive Stimulation </h3>
+
+<p class="experienceDesc"><i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Plan your trip with Multi-Modal Services. </p>
+  <p class="experienceDesc"> <i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Familiarize yourself with BMW Service Interface.</p>
+  <p class="experienceDesc"> <i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Sign up for our different Experiences.</p>
+<br>
+  <p class="experienceLocation"> <i class="fa fa-map-marker" style="font-size:15px;color:#d30000"></i>
+ Location 1</p>
+ </div>
+
+<div class="card w3-third">
+  <img src="designStudio.jpg" alt="BMW Design Studio" style="width:100%">
+  <h3 class="experienceheading" >BMW Design Studio</h3>
+  <br>
+<p class="experienceDesc"><i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Design your own Interior/Exterior. </p>
+  <p class="experienceDesc"> <i style="font-size:12px" class="fa">&#xf058; &nbsp;</i> First hand experience in BMW.</p>
+  <p class="experienceDesc"> <i style="font-size:12px" class="fa">&#xf058; &nbsp;</i> Interact with new luxuries offered by BMW.</p>
+<br>
+  <p class="experienceLocation"> <i class="fa fa-map-marker" style="font-size:15px;color:#d30000"></i>
+ Location 2</p>
+ </div>
+
+
+<div class="card w3-third">
+  <img src="lounge3.jpg" alt="BMW Design Studio" style="width:100%">
+  <h3 class="experienceheading" >BMW Lounge </h3>
+
+<p class="experienceDesc"><i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Interact with BMW AI Assistant. </p>
+  <p class="experienceDesc"> <i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Experience Wall.</p>
+  <p class="experienceDesc"> <i style="font-size:12px" class="fa">&#xf058; &nbsp;</i>Sign up on Mobile Devices to elevate your Experience.</p>
+<br>
+  <p class="experienceLocation"> <i class="fa fa-map-marker" style="font-size:15px;color:#d30000"></i>
+ Location 3</p>
+ </div>
+
+
+
+
 </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
