@@ -22,8 +22,14 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 body, html {
@@ -40,6 +46,19 @@ body, html {
 .w3-bar .w3-button {
     padding: 16px;
 
+}
+
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+/* DEMO ONLY - REMOVES UNWANTED MARGIN */
+.well .list-group {
+    margin-bottom: 0px;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -99,6 +118,23 @@ p{
     background-color: #ffffff8c;
     color: #000000;
 
+}
+
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+
+.signupbtn
+{
+    padding: 10px 550px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+    background-color: #009bc9;
 }
 
 </style>
@@ -309,7 +345,68 @@ if(pass == "bmwclass")
  </div>
 
 
+
 </div>
+    <button type="button" class="btn btn-info btn-lg signupbtn" data-toggle="modal" data-target="#myModal1">Sign Up for Experiences</button>
+
+
+<br> <br>
+
+
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Choose Your Experience.</h4>
+        </div>
+        <div class="modal-body">
+
+
+   <div class="col-xs-12">
+            <div class="well" style="max-height: 500px;overflow: auto;">
+
+<div class="w3-row">
+  <div class="w3-half w3-container">
+              <p>Name : <input type="text" id="myText" value=""> </p><br>
+  </div>
+  <div class="w3-half w3-container">
+              <p>Email : <input type="text" id="emailID" value=""> </p>
+  </div>
+</div>
+
+
+
+
+
+              <br>
+                <ul id="check-list-box" class="list-group checked-list-box">
+                  <li class="list-group-item">BMW Lounge</li>
+                  <li class="list-group-item" data-color="success">Interactive Simulation</li>
+                  <li class="list-group-item" data-color="info">BMW Design Studio</li>
+                  <li class="list-group-item" data-color="warning">BMW Garage</li>
+                </ul>
+                <br />
+                <button class="btn btn-primary col-xs-12" id="get-checked-data">Confirm</button>
+            </div>
+            <pre id="display-json"></pre>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
 
 </div>
 
@@ -511,10 +608,25 @@ function myMap()
 
 function sendEmail()
 {
-  console.log("sending emial");
+    console.log("sending emial");
     window.location = "mailto:atank2@uic.edu";
 }
 
+
+function getEmail(){
+    var input = document.getElementById("userInput").value;
+    var checkboxes = document.getElementById("experienceForm");
+    var list = checkboxes.getElementsByTagName("id").item;
+    var experiences = [];
+    for (var i = 0; i < list.length; i++){
+        if (list[i].checked){
+            var value = list[i].getElementsByTagName("value");
+            experiences.push(value).toString;
+        }
+    }
+    console.log("Sending Email");
+    window.location = "mailto:" + input + "&body=" + experiences;
+}
 
 // Modal Image Gallery
 function onClick(element) {
@@ -535,6 +647,116 @@ function w3_open() {
         mySidebar.style.display = 'block';
     }
 }
+
+
+$(function () {
+    $('.list-group.checked-list-box .list-group-item').each(function () {
+
+        // Settings
+        var $widget = $(this),
+            $checkbox = $('<input type="checkbox" class="hidden" />'),
+            color = ($widget.data('color') ? $widget.data('color') : "primary"),
+            style = ($widget.data('style') == "button" ? "btn-" : "list-group-item-"),
+            settings = {
+                on: {
+                    icon: 'glyphicon glyphicon-check'
+                },
+                off: {
+                    icon: 'glyphicon glyphicon-unchecked'
+                }
+            };
+
+        $widget.css('cursor', 'pointer')
+        $widget.append($checkbox);
+
+        // Event Handlers
+        $widget.on('click', function () {
+            $checkbox.prop('checked', !$checkbox.is(':checked'));
+            $checkbox.triggerHandler('change');
+            updateDisplay();
+        });
+        $checkbox.on('change', function () {
+            updateDisplay();
+        });
+
+
+        // Actions
+        function updateDisplay() {
+            var isChecked = $checkbox.is(':checked');
+
+            // Set the button's state
+            $widget.data('state', (isChecked) ? "on" : "off");
+
+            // Set the button's icon
+            $widget.find('.state-icon')
+                .removeClass()
+                .addClass('state-icon ' + settings[$widget.data('state')].icon);
+
+            // Update the button's color
+            if (isChecked) {
+                $widget.addClass(style + color + ' active');
+            } else {
+                $widget.removeClass(style + color + ' active');
+            }
+        }
+
+        // Initialization
+        function init() {
+
+            if ($widget.data('checked') == true) {
+                $checkbox.prop('checked', !$checkbox.is(':checked'));
+            }
+
+            updateDisplay();
+
+            // Inject the icon if applicable
+            if ($widget.find('.state-icon').length == 0) {
+                $widget.prepend('<span class="state-icon ' + settings[$widget.data('state')].icon + '"></span>');
+            }
+        }
+        init();
+    });
+
+
+
+
+
+    $('#get-checked-data').on('click', function(event) {
+        var personName= document.getElementById("myText").value;
+        var emailPerson= document.getElementById("emailID").value;
+
+        event.preventDefault();
+
+        var experiencesList ="";
+        var experiencesList2 ="";
+
+        var checkedItems = {}, counter = 0;
+
+        $("#check-list-box li.active").each(function(idx, li) {
+
+
+            checkedItems[counter] = $(li).text();
+            console.log(checkedItems[counter]);
+            experiencesList=experiencesList+" " +(counter+1) + " : " + checkedItems[counter] +"\n";
+            experiencesList2=experiencesList2+" " +(counter+1) + " : " + checkedItems[counter] +"<br>";
+
+            counter++;
+        });
+
+         var textString="Hello " + personName +",\nYou are Signed Up for the below Experiences.\n\n"+experiencesList+"\n\nWe Look forward to connecting with you soon!!\n\n\n-BMW North America.";
+
+
+var textString2="Hello " + personName +",<br>You are Signed Up for the below Experiences.<br>Shortly you will receive a confirmation email through BMW Services.<br><br>"+experiencesList2+"<br><br>We Look forward to connecting with you soon!!<br><br><br>-BMW North America.";
+
+        console.log(textString);
+        textString= encodeURIComponent(textString);
+
+        window.location = "mailto:"+emailPerson+"?Subject=BMW Experiences Center&body="+textString;
+
+        console.log("list"+experiencesList);
+        $('#display-json').html(JSON.stringify(textString2, null, '\t'));
+    });
+});
 
 // Close the sidebar with the close button
 function w3_close() {
